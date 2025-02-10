@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details - Executive Rides</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/car-details.js" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="#home" class="logo">Executive Rides <i class="fas fa-car-side"></i></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cars">Available Cars</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar for Mobile -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <ul class="sidebar-links">
+            <li><a href="#home" onclick="toggleSidebar()">Home</a></li>
+            <li><a href="#cars" onclick="toggleSidebar()">Available Cars</a></li>
+            <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+            <li><a href="#about" onclick="toggleSidebar()">About</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="car-detail" id="car-detail">
+            <div class="car-slider">
+                <img id="main-image" src="" alt="Car Image">
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+            <div class="car-information">
+                <h1 id="car-name">Car Name</h1>
+                <p id="car-description">Car description goes here.</p>
+                <ul>
+                    <li><strong>Price:</strong> <span id="car-price"></span> per day</li>
+                    <li><strong>Seats:</strong> <span id="car-seats"></span></li>
+                    <li><strong>Transmission:</strong> <span id="car-transmission"></span></li>
+                    <li><strong>Fuel Type:</strong> <span id="car-fuel"></span></li>
+                </ul>
+                <a href="tel:+254703373151" class="cta-btn"><i class='bx bx-phone-call'></i> Call to Book</a>
+                <a href="#" class="cta-btn"><i class='bx bxl-whatsapp'></i> Chat Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> +254 703 373 151</p>
+                <p><i class="fas fa-envelope"></i> mauricemuli730@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#cars">Available Cars</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Executive Rides | All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+<script src="./js/script.js"></script>
+</html>
