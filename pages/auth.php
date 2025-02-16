@@ -2,7 +2,13 @@
 include '../db.php';
 session_start();
 
-$message = ""; // Default message
+$message = "";
+
+// Check if there's a stored message in the session
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']); // Clear message after displaying it
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["register"])) {
@@ -14,15 +20,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $conn->query($check_email);
 
         if ($result->num_rows > 0) {
-            $message = "<div class='alert error'>Email already exists!</div>";
+            $_SESSION['message'] = "<div class='alert error'>Email already exists!</div>";
         } else {
             $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
             if ($conn->query($sql) === true) {
-                $message = "<div class='alert success'>Registration successful! Proceed to Log in.</div>";
+                $_SESSION['message'] = "<div class='alert success'>Registration successful! Proceed to Log in.</div>";
             } else {
-                $message = "<div class='alert error'>Registration failed! " . $conn->error . "</div>";
+                $_SESSION['message'] = "<div class='alert error'>Registration failed! " . $conn->error . "</div>";
             }
         }
+
+        // Redirect to prevent resubmission
+        header("Location: auth.php");
+        exit();
     }
 
     if (isset($_POST["login"])) {
@@ -41,14 +51,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../index.php");
                 exit();
             } else {
-                $message = "<div class='alert error'>Incorrect Password</div>";
+                $_SESSION['message'] = "<div class='alert error'>Incorrect Password</div>";
             }
         } else {
-            $message = "<div class='alert error'>User not found!</div>";
+            $_SESSION['message'] = "<div class='alert error'>User not found!</div>";
         }
+
+        // Redirect to prevent resubmission
+        header("Location: auth.php");
+        exit();
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
