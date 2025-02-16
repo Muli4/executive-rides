@@ -17,5 +17,5 @@ function toggleForm() {
     setTimeout(()=>{
         loginForm.style.opacity = 1;
         registerForm.style.opacity = 1;
-    }, 2000);
+    }, 200);
 }
