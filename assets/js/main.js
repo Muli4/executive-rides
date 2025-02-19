@@ -22,16 +22,18 @@ function toggleForm() {
 
 
 function applyFilters() {
-    let selectedSeats = document.getElementById("seatFilter").value;
-    let maxPrice = document.getElementById("priceFilter").value;
-    
+    let seatFilter = document.getElementById("seatFilter").value;
+    let priceFilter = document.getElementById("priceFilter").value;
     let cars = document.querySelectorAll(".car-card");
-    cars.forEach(car => {
-        let carSeats = car.getAttribute("data-seats");
-        let carPrice = car.getAttribute("data-price");
 
-        if ((selectedSeats === "all" || carSeats === selectedSeats) &&
-            (maxPrice === "" || parseInt(carPrice) <= parseInt(maxPrice))) {
+    cars.forEach(car => {
+        let seats = car.getAttribute("data-seats");
+        let price = parseFloat(car.getAttribute("data-price"));
+
+        let seatMatch = (seatFilter === "all" || seatFilter == seats);
+        let priceMatch = (priceFilter === "" || price <= parseFloat(priceFilter));
+
+        if (seatMatch && priceMatch) {
             car.style.display = "block";
         } else {
             car.style.display = "none";
