@@ -12,27 +12,17 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Cars Table
 CREATE TABLE cars (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    model VARCHAR(100),
-    brand VARCHAR(100),
-    year INT,
-    price_per_day DECIMAL(10,2),
-    availability BOOLEAN DEFAULT TRUE,
-    image VARCHAR(255)
+    name VARCHAR(255) NOT NULL,
+    brand VARCHAR(100) NOT NULL,
+    seats INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image LONGBLOB NOT NULL,
+    fuel_type ENUM('Petrol', 'Diesel', 'Electric', 'Hybrid') NOT NULL,
+    transmission ENUM('Automatic', 'Manual') NOT NULL,
+    description TEXT NOT NULL,
+    status ENUM('Available', 'Rented') DEFAULT 'Available',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Bookings Table
-CREATE TABLE bookings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    car_id INT,
-    start_date DATE,
-    end_date DATE,
-    total_price DECIMAL(10,2),
-    status ENUM('pending', 'confirmed', 'canceled') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (car_id) REFERENCES cars(id)
-);
