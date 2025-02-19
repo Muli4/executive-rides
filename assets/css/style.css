@@ -4,6 +4,128 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFCC00, #1A1A2E);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+/* homepage */
+.main-content
+{
+    flex: 1;
+}
+header {
+    background: #16213E;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+header h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 18px;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    gap: 10px; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a {
+    color: #FFCC00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+
+/* 🚗 Car Filters */
+#filters {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#filters select, #filters input, #filters button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+/* 🚘 Car Sections */
+.car-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.car-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.car-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+/* 📞 Contact Section */
+#contact {
+    text-align: center;
+    padding: 20px;
+    background: #16213E;
+    color: white;
+}
+
+/* 🔥 Footer */
+footer {
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    bottom: 0;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/* authentication page */
 .form-body{
     display: flex;
     justify-content: center;
@@ -127,3 +249,5 @@
 .alert {
     animation: alerts 0.5s ease-in-out;
 }
+
+/* 🔥 Navigation Bar */
